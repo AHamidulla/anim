@@ -1,0 +1,151 @@
+
+
+  .video-bg {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  .video-bg video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: blur(5px);
+  }
+
+  .video-bg::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.418);
+  }
+
+  .video-bg__content {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100vh;
+    p {
+      border-right: solid 3px rgba(255, 255, 255, 0.75);
+      white-space: nowrap;
+      overflow: hidden;
+      font-family: "Source Code Pro", monospace;
+      font-size: 28px;
+      color: rgba(255, 255, 255, 0.705);
+    }
+
+    p {
+      margin-top: 300px;
+      animation: animated-text 6s steps(39, end) 1s 1 normal both,
+        animated-cursor 600ms steps(39, end) infinite;
+    }
+
+  }
+  @keyframes animated-text {
+    from {
+      width: 0;
+    }
+    to {
+      width: 472px;
+    }
+  }
+
+  /* cursor animations */
+
+  @keyframes animated-cursor {
+    from {
+      border-right-color: rgba(255, 255, 255, 0.75);
+    }
+    to {
+      border-right-color: transparent;
+    }
+  }
+
+  @-webkit-keyframes mask-move {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(258px);
+    }
+  }
+  @keyframes mask-move {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(258px);
+    }
+  }
+  @-webkit-keyframes mask-inner-move {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-258px);
+    }
+  }
+  @keyframes mask-inner-move {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-258px);
+    }
+  }
+
+  .focus {
+    margin-top: 100px;
+    font-size: 6rem;
+    text-transform: uppercase;
+    color: white;
+    letter-spacing: 0.4rem;
+    line-height: 1;
+    position: relative;
+    width: 358px;
+  }
+  .focus:before {
+    content: "Anime";
+    filter: blur(6px);
+  }
+  .focus:after {
+    content: "";
+    position: absolute;
+    width: 100px;
+    height: calc(100% + 16px);
+    top: -8px;
+    left: 0;
+    border-top: 4px solid;
+    border-bottom: 4px solid;
+    -webkit-animation: mask-move 1.5s linear infinite alternate;
+    animation: mask-move 1.5s linear infinite alternate;
+  }
+  .focus--mask {
+    overflow: hidden;
+    position: absolute;
+    width: 100px;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: #ffffff5d;
+    -webkit-animation: mask-move 1.5s linear infinite alternate;
+    animation: mask-move 1.5s linear infinite alternate;
+  }
+  .focus--mask-inner {
+    padding-left: 10px;
+
+    -webkit-animation: mask-inner-move 1.5s linear infinite alternate;
+    animation: mask-inner-move 1.5s linear infinite alternate;
+  }
